@@ -8,7 +8,9 @@ use App\DTO\Create\CreateUserDTO;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Register\RegisterUserRequest;
 use App\Http\Responses\ApiResponse;
-use App\Register\Services\RegisterUserService;
+use App\Services\Register\RegisterUserService;
+
+
 
 class RegisterUserController extends Controller
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Register\Services;
+namespace App\Services\Register;
 
 use App\DTO\Create\CreateUserDTO;
 use App\Interfaces\UserRepositoryInterface;
