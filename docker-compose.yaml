@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+   
+    db-meu-pit-stop-laravel:
+        image: postgres
+        container_name: meu-pit-stop-laravel-postgres
+        environment:
+            POSTGRES_USER: "postgres"
+            POSTGRES_PASSWORD: "postgres"
+            POSTGRES_DB: "meu-pit-stop"
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        ports:
+            - "54320:5432"
+        restart: no
+        networks:
+            - meu-pit-stop-laravel-net
+
+
+networks:
+  meu-pit-stop-laravel-net:
+
+volumes:
+    postgres_data:
