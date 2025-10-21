@@ -7,7 +7,6 @@ class UpdateMechanicShopsDTO
     public function __construct(
         public readonly int $id,
         public readonly string $name,
-        public readonly int $user_id,
         public readonly string $phone,
         public readonly string $email,
         public readonly string $address,
@@ -25,7 +24,6 @@ class UpdateMechanicShopsDTO
     {
         return [
             'name' => $this->name,
-            'user_id' => $this->user_id,
             'phone' => $this->phone,
             'email' => $this->email,
             'address' => $this->address,

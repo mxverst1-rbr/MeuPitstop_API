@@ -6,7 +6,6 @@ class UpdateMaintenanceScheduleDTO
 {
     public function __construct(
         public readonly int $id,
-        public readonly int $user_id,
         public readonly string $mechanic_shop_id,
         public readonly string $vehicle_model,
         public readonly string $vehicle_plate,
@@ -19,7 +18,6 @@ class UpdateMaintenanceScheduleDTO
     public function toArray(): array
     {
         return [
-            'user_id' => $this->user_id,
             'mechanic_shop_id' => $this->mechanic_shop_id,
             'vehicle_model' => $this->vehicle_model,
             'vehicle_plate' => $this->vehicle_plate,

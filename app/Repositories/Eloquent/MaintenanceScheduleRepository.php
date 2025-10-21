@@ -18,7 +18,21 @@ class MaintenanceScheduleRepository implements MaintenanceScheduleInterface
 
     public function getAllMaintenanceSchedulesPaginated(PaginationDTO $paginationDTO)
     {
-        return MaintenanceSchedule::paginate($paginationDTO->limit, ['*'], 'page', $paginationDTO->page);
+        $paginator = MaintenanceSchedule::with('user:id,name')
+            ->paginate($paginationDTO->limit, ['*'], 'page', $paginationDTO->page);
+
+        $paginator->getCollection()->transform(function (MaintenanceSchedule $item) {
+            $item->user_name = $item->user?->name;
+            $item->mechanic_shop_name = $item->mechanicShop?->name;
+
+            unset($item->user_id);
+            unset($item->user);
+            unset($item->mechanicShop);
+            unset($item->mechanic_shop_id);
+            return $item;
+        });
+
+        return $paginator;
     }
 
 
@@ -36,7 +50,16 @@ class MaintenanceScheduleRepository implements MaintenanceScheduleInterface
 
     public function getMaintenanceScheduleById(int $maintenanceScheduleId)
     {
-        return MaintenanceSchedule::findOrFail($maintenanceScheduleId);
+        $schedule = MaintenanceSchedule::with('user:id,name')->findOrFail($maintenanceScheduleId);
+        $schedule->user_name = $schedule->user?->name;
+        $schedule->mechanic_shop_name = $schedule->mechanicShop?->name;
+
+        unset($schedule->user_id);
+        unset($schedule->user);
+        unset($schedule->mechanicShop);
+        unset($schedule->mechanic_shop_id);
+
+        return $schedule;
     }
 
     public function destroyMaintenanceSchedule(int $maintenanceScheduleId)
