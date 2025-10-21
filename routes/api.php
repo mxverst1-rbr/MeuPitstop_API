@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Destroy\DestroyMaintenanceScheduleController;
 use App\Http\Controllers\Destroy\DestroyMechanicShopsController;
 use App\Http\Controllers\Index\IndexMaintenanceScheduleController;
 use App\Http\Controllers\Index\IndexMechanicShopsController;
@@ -39,6 +40,6 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/', IndexMaintenanceScheduleController::class);
         Route::get('/{id}', ShowMaintenanceScheduleController::class);
         Route::put('/{id}', UpdateMaintenanceScheduleController::class);
-        // Route::delete('/{id}', DestroyMaintenanceScheduleController::class);
+        Route::delete('/{id}', DestroyMaintenanceScheduleController::class);
     });
 });
