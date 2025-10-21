@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Interfaces\MaintenanceScheduleInterface;
 use App\Interfaces\MechanicShopsInterface;
 use App\Interfaces\UserRepositoryInterface;
+use App\Repositories\Eloquent\MaintenanceScheduleRepository;
 use App\Repositories\Eloquent\MechanicShopsRepository;
 use App\Repositories\Eloquent\UserRepository;
 use Illuminate\Support\ServiceProvider;
@@ -30,5 +32,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(UserRepositoryInterface::class, UserRepository::class);
         $this->app->singleton(MechanicShopsInterface::class, MechanicShopsRepository::class);
+        $this->app->singleton(MaintenanceScheduleInterface::class, MaintenanceScheduleRepository::class);
     }
 }
