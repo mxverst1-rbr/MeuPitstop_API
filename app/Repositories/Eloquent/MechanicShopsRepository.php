@@ -18,7 +18,17 @@ class MechanicShopsRepository implements MechanicShopsInterface
 
     public function getAllMechanicShopsPaginated(PaginationDTO $paginationDTO)
     {
-        return MechanicShop::paginate($paginationDTO->limit, ['*'], 'page', $paginationDTO->page);
+        $paginator = MechanicShop::paginate($paginationDTO->limit, ['*'], 'page', $paginationDTO->page);
+        $paginator->getCollection()->transform(function (MechanicShop $item) {
+            $item->user_name = $item->user?->name;
+
+            unset($item->user_id);
+            unset($item->user);
+
+            return $item;
+        });
+
+        return $paginator;
     }
 
 
@@ -36,7 +46,13 @@ class MechanicShopsRepository implements MechanicShopsInterface
 
     public function getMechanicShopById(int $mechanicShopId)
     {
-        return MechanicShop::findOrFail($mechanicShopId);
+        $mechanicShop = MechanicShop::findOrFail($mechanicShopId);
+        $mechanicShop->user_name = $mechanicShop->user?->name;
+
+        unset($mechanicShop->user_id);
+        unset($mechanicShop->user);
+
+        return $mechanicShop;
     }
 
     public function destroyMechanicShop(int $mechanicShopId)
