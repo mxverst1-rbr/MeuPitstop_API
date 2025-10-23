@@ -7,9 +7,9 @@ API construído com PHP
 - [Composer 2.x](https://getcomposer.org/download/)
 - [npm](https://www.npmjs.com/) (vem junto com o Node.js)
 - [Node.js](https://nodejs.org/) (versão 20.x recomendada)
-- Git (para versionamento e clonar repositórios)
 - [Visual Studio Code](https://code.visualstudio.com/) (editor de código usado)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (para rodar containers do banco de dados)
+- Git (para versionamento e clonar repositórios)
 
 
 ## 1° Execução do projeto
