@@ -1,43 +1,41 @@
-Para rodar o projeto a primeira vez
+API construído com PHP
 
-- PHP 8
-- composer 2.7.2
-- node 20.19.5
-- Docker desktop
+## Como rodar o projeto (API)
 
-renomeia a .env.example pra .env
+### Programas necessários
+- [Node.js](https://nodejs.org/) (versão 20.x recomendada)
+- [npm](https://www.npmjs.com/) (vem junto com o Node.js)
+- [PHP 8](https://www.php.net/downloads.php)
+- [Composer 2.x](https://getcomposer.org/download/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (para rodar containers do banco de dados)
+- [Visual Studio Code](https://code.visualstudio.com/) (editor de código usado)
+- Git (para versionamento e clonar repositórios)
 
-docker-compose up -d 
+## 1° Execução do projeto
+- renomeia a .env.example para → **.env**
+- Inicie os containers Docker rode → **docker-compose up -d** 
+- Instale as dependências do Composer rode → **composer install** 
+**O.B.S: Caso o comando acima apresente erro, ajuste seu arquivo php.ini. Para localizar o arquivo, execute: "php --ini" no terminal. Em seguida, remova o (;) do início das seguintes linhas: extension=php_fileinfo, extension=php_pdo_pgsql e extension=php_pgsql.dll**
+- Execute as migrações e inicie o servidor Laravel rode → **php artisan migrate** e **php artisan serve**
 
-composer install 
-Caso o composer install não rode vai no seu php.ini, pra localizar ele digita php --ini no terminal e depois tira o ; do extension=php_fileinfo, do extension=php_pdo_pgsql e extension=php_pgsql.dll
+## Execuções posteriores
+Após a primeira configuração, basta rodar:
+- **php artisan serve** e **docker-compose up -d**
 
-php artisan migrate
-php artisan serve
+## Criação e configuração inicial do projeto (para referência)
+Durante o desenvolvimento, o projeto foi inicializado com os seguintes comandos:
+- **composer global require laravel/installer** e **laravel new example-app**
 
-Para rodar depois da primeira vez:
-php artisan serve
-docker-compose up -d 
+Configurações escolhidas:
+- Banco de dados: PostgreSQL (pgsql)
+- Outras opções: none 0 pgsql yes yes
 
-Para inicializar o projeto usei
+Após isso:
+- O arquivo .env foi configurado manualmente.
+- O arquivo docker-compose.yml foi criado.
 
-composer global require laravel/installer
+Containers iniciados com:
+- **docker-compose up -d**
 
-laravel new example-app
-
-none
-0
-pgsql
-yes
-yes
-
-modifiquei a .env, criei o docker-compose
-
-docker compose up -d
-
-php artisan install:api
-
-
-
-
-
+API instalada com:
+- **php artisan install:api**
