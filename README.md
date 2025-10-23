@@ -4,10 +4,10 @@ API construído com PHP
 
 ### Programas necessários
 - [PHP 8](https://www.php.net/downloads.php)
-- Git (para versionamento e clonar repositórios)
 - [Composer 2.x](https://getcomposer.org/download/)
 - [npm](https://www.npmjs.com/) (vem junto com o Node.js)
 - [Node.js](https://nodejs.org/) (versão 20.x recomendada)
+- Git (para versionamento e clonar repositórios)
 - [Visual Studio Code](https://code.visualstudio.com/) (editor de código usado)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (para rodar containers do banco de dados)
 
