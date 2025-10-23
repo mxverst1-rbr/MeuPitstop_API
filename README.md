@@ -3,13 +3,14 @@ API construído com PHP
 ## Como rodar o projeto (API)
 
 ### Programas necessários
-- [Node.js](https://nodejs.org/) (versão 20.x recomendada)
-- [npm](https://www.npmjs.com/) (vem junto com o Node.js)
 - [PHP 8](https://www.php.net/downloads.php)
-- [Composer 2.x](https://getcomposer.org/download/)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (para rodar containers do banco de dados)
-- [Visual Studio Code](https://code.visualstudio.com/) (editor de código usado)
 - Git (para versionamento e clonar repositórios)
+- [Composer 2.x](https://getcomposer.org/download/)
+- [npm](https://www.npmjs.com/) (vem junto com o Node.js)
+- [Node.js](https://nodejs.org/) (versão 20.x recomendada)
+- [Visual Studio Code](https://code.visualstudio.com/) (editor de código usado)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (para rodar containers do banco de dados)
+
 
 ## 1° Execução do projeto
 - renomeia a .env.example para → **.env**
