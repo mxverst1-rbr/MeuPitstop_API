@@ -15,7 +15,9 @@ API construído com PHP
 - renomeia a .env.example para → **.env**
 - Inicie os containers Docker rode → **docker-compose up -d** 
 - Instale as dependências do Composer rode → **composer install** 
-**O.B.S: Caso o comando acima apresente erro, ajuste seu arquivo php.ini. Para localizar o arquivo, execute: "php --ini" no terminal. Em seguida, remova o (;) do início das seguintes linhas: extension=php_fileinfo, extension=php_pdo_pgsql e extension=php_pgsql.dll**
+
+⚠️**O.B.S: Caso o comando acima apresente erro, ajuste seu arquivo php.ini. Para localizar o arquivo, execute: "php --ini" no terminal. Em seguida, remova o (;) do início das seguintes linhas: extension=php_fileinfo, extension=php_pdo_pgsql e extension=php_pgsql.dll**
+
 - Execute as migrações e inicie o servidor Laravel rode → **php artisan migrate** e **php artisan serve**
 
 ## Execuções posteriores
@@ -38,4 +40,4 @@ Containers iniciados com:
 - **docker-compose up -d**
 
 API instalada com:
-- **php artisan install:api**
+- **php artisan install:api** 	
