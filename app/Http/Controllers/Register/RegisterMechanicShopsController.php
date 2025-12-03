@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Register\RegisterMechanicShopRequest;
 use App\Http\Responses\ApiResponse;
 use App\Services\Register\RegisterMechanicShopsService;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterMechanicShopsController extends Controller
 
@@ -23,10 +24,11 @@ class RegisterMechanicShopsController extends Controller
      */
     public function __invoke(RegisterMechanicShopRequest $request)
     {
- 
-        $data = new CreateMechanicShopsDTO(...$request->validated());
+        $data = $request->validated();
+        $data['user_id'] = $data['user_id'] ?? Auth::id();
+        $dataDTO = new CreateMechanicShopsDTO(...$data);
 
-        $this->registerMechanicShopsService->handle($data);
+        $this->registerMechanicShopsService->handle($dataDTO);
         return ApiResponse::noContent();
     }
 }

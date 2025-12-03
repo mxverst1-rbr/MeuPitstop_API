@@ -10,6 +10,7 @@ use App\Http\Controllers\Register\RegisterMechanicShopsController;
 use App\Http\Controllers\Register\RegisterUserController;
 use App\Http\Controllers\Show\ShowMaintenanceScheduleController;
 use App\Http\Controllers\Show\ShowMechanicShopsController;
+use App\Http\Controllers\Show\ShowMyUserController;
 use App\Http\Controllers\Update\UpdateMaintenanceScheduleController;
 use App\Http\Controllers\Update\UpdateMechanicShopsController;
 use App\Http\Controllers\UserController;
@@ -23,6 +24,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::group(['prefix' => 'user'], static function () {
         Route::get('/', [UserController::class, 'getUser']);
+        Route::get('/myUser', ShowMyUserController::class);
     });
 
     Route::post('/logout', [AuthController::class, 'logout']);
